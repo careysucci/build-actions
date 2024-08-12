@@ -95,7 +95,7 @@ env:
   GIT_REPOSITORY: ${{github.repository}}
   RUN_NUMBER: ${{github.run_number}}
   RUN_WORKFLOW: ${{github.workflow}}
-  REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+  REPO_TOKEN: ${{ secrets.op_key }}
   PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
   TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -120,9 +120,9 @@ jobs:
     - name: 密匙检测（密匙为空则退出）
       run: |
         cd ${GITHUB_WORKSPACE}
-        if [[ -z "${{ secrets.REPO_TOKEN }}" ]]; then
+        if [[ -z "${{ secrets.op_key }}" ]]; then
           echo "您没有设置仓库密匙，请按教程设置好密匙再来"
-          echo "REPO_TOKEN密匙制作教程：https://git.io/jm.md"
+          echo "op_key密匙制作教程：https://git.io/jm.md"
           exit 1
         fi
     
