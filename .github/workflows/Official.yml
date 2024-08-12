@@ -235,7 +235,7 @@ jobs:
         delete_tags: true
         delete_workflows: false
         workflows_keep_day: 90
-        gh_token: ${{ secrets.REPO_TOKEN }}
+        gh_token: ${{ secrets.op_key }}
         
     - name: 触发启动"${{ matrix.target }}"开始编译
       id: gitpush
