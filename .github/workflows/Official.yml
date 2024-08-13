@@ -70,7 +70,7 @@ on:
         type: boolean
       CACHEWRTBUILD_SWITCH:
         description: '缓存加速编译'
-        required: false
+        required: true
         default: 'true'
         type: boolean
       UPDATE_FIRMWARE_ONLINE:
