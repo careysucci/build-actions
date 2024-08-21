@@ -165,9 +165,8 @@ jobs:
         cp -Rf ${GITHUB_WORKSPACE}/build ${GITHUB_WORKSPACE}/openwrt/build
         chmod -R +x ${GITHUB_WORKSPACE}/openwrt/build
         cd openwrt
-        export echo "GIT_TOP_TAGGED=$(git describe --tags)" >> ${GITHUB_ENV}
+        export echo "GIT_TOP_TAGGED=snapshot $(git describe --tags)" >> ${GITHUB_ENV}
         cd ..
-        echo ${GIT_TOP_TAGGED}
 
     
     - name: 公 告
