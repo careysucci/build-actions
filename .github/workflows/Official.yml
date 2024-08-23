@@ -165,7 +165,7 @@ jobs:
         cp -Rf ${GITHUB_WORKSPACE}/build ${GITHUB_WORKSPACE}/openwrt/build
         chmod -R +x ${GITHUB_WORKSPACE}/openwrt/build
         cd openwrt
-        export echo "GIT_TOP_TAGGED=snapshot $(git describe --tags)" >> ${GITHUB_ENV}
+        export GIT_TOP_TAGGED="snapshot $(git describe --tags)" >> ${GITHUB_ENV}
         cd ..
 
     
@@ -186,9 +186,7 @@ jobs:
       if: env.REPO_TOKEN
       run: |
         cd openwrt
-        echo "dddd"
         source ${BUILD_PATH}/common.sh && Diy_menu4
-        echo "dddd3333"
         
     - name: 安装插件源
       if: env.REPO_TOKEN

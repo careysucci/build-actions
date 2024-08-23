@@ -38,7 +38,8 @@ export OpenClash_branch="0"                 # OpenClash的源码分别有【mast
 export OpenClash_Core="2"                   # 增加OpenClash时,把核心下载好,(填1为下载【dev单核】,填2为下载【dev/meta/premium三核】,填0为不需要核心)
 
 # 个性签名,默认增加年月日[$(TZ=UTC-8 date "+%Y.%m.%d")]
-export Customized_Information="Wy.House $(TZ=UTC-8 date "+%Y.%m.%d")"  # 个性签名,你想写啥就写啥，(填0为不作修改)
+Customized_Information="Wy.House $(TZ=UTC-8 date "+%Y.%m.%d")"  # 个性签名,你想写啥就写啥，(填0为不作修改)
+export Customized_Information
 
 # 更换固件内核
 export Replace_Kernel="0"                    # 更换内核版本,在对应源码的[target/linux/架构]查看patches-x.x,看看x.x有啥就有啥内核了(填入内核x.x版本号,填0为不作修改)
@@ -74,15 +75,26 @@ export kernel_usage="stable"
 
 
 
+echo "cccsss"
+# # 修改插件名字
+# sed -i 's/"终端"/"TTYD"/g' "$(grep -E "终端" -rl ./)"
+# sed -i 's/"网络存储"/"NAS"/g' "$(grep -E "网络存储" -rl ./)"
+# sed -i 's/"实时流量监测"/"流量"/g' "$(grep -E "实时流量监测" -rl ./)"
+# sed -i 's/"KMS 服务器"/"KMS激活"/g' "$(grep -E "KMS 服务器" -rl ./)"
+# sed -i 's/"USB 打印服务器"/"打印服务"/g' "$(grep -E "USB 打印服务器" -rl ./)"
+# sed -i 's/"Web 管理"/"Web管理"/g' "$(grep -E "Web 管理" -rl ./)"
+# sed -i 's/"管理权"/"改密码"/g' "$(grep -E "管理权" -rl ./)"
+# sed -i 's/"带宽监控"/"监控"/g' "$(grep -E "带宽监控" -rl ./)"
 # 修改插件名字
-sed -i 's/"终端"/"TTYD"/g' "$(grep -E "终端" -rl ./)"
-sed -i 's/"网络存储"/"NAS"/g' "$(grep -E "网络存储" -rl ./)"
-sed -i 's/"实时流量监测"/"流量"/g' "$(grep -E "实时流量监测" -rl ./)"
-sed -i 's/"KMS 服务器"/"KMS激活"/g' "$(grep -E "KMS 服务器" -rl ./)"
-sed -i 's/"USB 打印服务器"/"打印服务"/g' "$(grep -E "USB 打印服务器" -rl ./)"
-sed -i 's/"Web 管理"/"Web管理"/g' "$(grep -E "Web 管理" -rl ./)"
-sed -i 's/"管理权"/"改密码"/g' "$(grep -E "管理权" -rl ./)"
-sed -i 's/"带宽监控"/"监控"/g' "$(grep -E "带宽监控" -rl ./)"
+sed -i 's/"终端"/"TTYD"/g' `egrep "终端" -rl ./`
+sed -i 's/"网络存储"/"NAS"/g' `egrep "网络存储" -rl ./`
+sed -i 's/"实时流量监测"/"流量"/g' `egrep "实时流量监测" -rl ./`
+sed -i 's/"KMS 服务器"/"KMS激活"/g' `egrep "KMS 服务器" -rl ./`
+sed -i 's/"USB 打印服务器"/"打印服务"/g' `egrep "USB 打印服务器" -rl ./`
+sed -i 's/"Web 管理"/"Web管理"/g' `egrep "Web 管理" -rl ./`
+sed -i 's/"管理权"/"改密码"/g' `egrep "管理权" -rl ./`
+sed -i 's/"带宽监控"/"监控"/g' `egrep "带宽监控" -rl ./`
+echo "diy-part end"
 
 
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间(根据编译机型变化,自行调整删除名称)
@@ -99,6 +111,5 @@ openwrt-x86-64-generic-squashfs-rootfs.img.gz
 EOF
 
 # 在线更新时，删除不想保留固件的某个文件，在EOF跟EOF之间加入删除代码，记住这里对应的是固件的文件路径，比如： rm -rf /etc/config/luci
-cat >>$DELETE <<-EOF
+cat >> "$DELETE" <<-EOF
 EOF
-echo "diy-part end"
