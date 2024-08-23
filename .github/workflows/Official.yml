@@ -186,7 +186,9 @@ jobs:
       if: env.REPO_TOKEN
       run: |
         cd openwrt
+        echo "dddd"
         source ${BUILD_PATH}/common.sh && Diy_menu4
+        echo "dddd3333"
         
     - name: 安装插件源
       if: env.REPO_TOKEN
