@@ -74,16 +74,26 @@ export rootfs_size="2560"
 export kernel_usage="stable"
 
 
-
+echo "22222"
 # 修改插件名字
-sed -i 's/"终端"/"TTYD"/g' "$(grep -E "终端" -rl ./)"
-sed -i 's/"网络存储"/"NAS"/g' "$(grep -E "网络存储" -rl ./)"
-sed -i 's/"实时流量监测"/"流量"/g' "$(grep -E "实时流量监测" -rl ./)"
-sed -i 's/"KMS 服务器"/"KMS激活"/g' "$(grep -E "KMS 服务器" -rl ./)"
-sed -i 's/"USB 打印服务器"/"打印服务"/g' "$(grep -E "USB 打印服务器" -rl ./)"
-sed -i 's/"Web 管理"/"Web管理"/g' "$(grep -E "Web 管理" -rl ./)"
-sed -i 's/"管理权"/"改密码"/g' "$(grep -E "管理权" -rl ./)"
-sed -i 's/"带宽监控"/"监控"/g' "$(grep -E "带宽监控" -rl ./)"
+grep -E "终端" -rl ./ |xargs sed -i 's/"终端"/"TTYD"/g'
+grep -E "网络存储" -rl ./ |xargs sed -i 's/"网络存储"/"NAS"/g'
+grep -E "实时流量监测" -rl ./ |xargs sed -i 's/"实时流量监测"/"流量"/g'
+grep -E "KMS 服务器" -rl ./ |xargs sed -i 's/"KMS 服务器"/"KMS激活"/g'
+grep -E "USB 打印服务器" -rl ./ |xargs sed -i 's/"USB 打印服务器"/"打印服务"/g'
+grep -E "Web 管理" -rl ./ |xargs sed -i 's/"Web 管理"/"Web管理"/g'
+grep -E "管理权" -rl ./ |xargs sed -i 's/"管理权"/"改密码"/g'
+grep -E "带宽监控" -rl ./ |xargs sed -i 's/"带宽监控"/"监控"/g'
+
+# 以下是原版脚本内容
+# sed -i 's/"终端"/"TTYD"/g' "$(grep -E "终端" -rl ./)"
+# sed -i 's/"网络存储"/"NAS"/g' "$(grep -E "网络存储" -rl ./)"
+# sed -i 's/"实时流量监测"/"流量"/g' "$(grep -E "实时流量监测" -rl ./)"
+# sed -i 's/"KMS 服务器"/"KMS激活"/g' "$(grep -E "KMS 服务器" -rl ./)"
+# sed -i 's/"USB 打印服务器"/"打印服务"/g' "$(grep -E "USB 打印服务器" -rl ./)"
+# sed -i 's/"Web 管理"/"Web管理"/g' "$(grep -E "Web 管理" -rl ./)"
+# sed -i 's/"管理权"/"改密码"/g' "$(grep -E "管理权" -rl ./)"
+# sed -i 's/"带宽监控"/"监控"/g' "$(grep -E "带宽监控" -rl ./)"
 
 
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间(根据编译机型变化,自行调整删除名称)
