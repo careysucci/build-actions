@@ -74,7 +74,6 @@ export rootfs_size="2560"
 export kernel_usage="stable"
 
 
-echo "22222"
 # 修改插件名字
 grep -E "终端" -rl ./ |xargs sed -i 's/"终端"/"TTYD"/g'
 grep -E "网络存储" -rl ./ |xargs sed -i 's/"网络存储"/"NAS"/g'
