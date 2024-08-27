@@ -39,7 +39,9 @@ export OpenClash_Core="2"                   # 增加OpenClash时,把核心下载
 
 # 个性签名,默认增加年月日[$(TZ=UTC-8 date "+%Y.%m.%d")]
 Customized_Information="Wy.House $(TZ=UTC-8 date "+%Y.%m.%d")"  # 个性签名,你想写啥就写啥，(填0为不作修改)
-export Customized_Information
+# rom打包者,用于在个性签名里使用
+Build_Author_Name="Wy"
+export Customized_Information Build_Author_Name
 
 # 更换固件内核
 export Replace_Kernel="0"                    # 更换内核版本,在对应源码的[target/linux/架构]查看patches-x.x,看看x.x有啥就有啥内核了(填入内核x.x版本号,填0为不作修改)
